@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="20.2.6.0" Ref="0" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Report4" PageWidth="850" PageHeight="1100" Version="20.2" Font="Arial, 9.75pt">
+  <Bands>
+    <Item1 Ref="1" ControlType="TopMarginBand" Name="TopMargin" />
+    <Item2 Ref="2" ControlType="DetailBand" Name="Detail" HeightF="102.000015">
+      <Controls>
+        <Item1 Ref="3" ControlType="XRLabel" Name="label4" Multiline="true" Text="label4" TextAlignment="TopRight" SizeF="100,23" LocationFloat="98.3333359,79.0000153" Padding="2,2,0,0,96">
+          <ExpressionBindings>
+            <Item1 Ref="4" EventName="BeforePrint" PropertyName="Text" Expression="[Tags].[Length]" />
+          </ExpressionBindings>
+        </Item1>
+        <Item2 Ref="5" ControlType="XRLabel" Name="label3" Multiline="true" Text="label3" SizeF="100,23" LocationFloat="98.3333359,56.00001" Padding="2,2,0,0,96">
+          <ExpressionBindings>
+            <Item1 Ref="6" EventName="BeforePrint" PropertyName="Text" Expression="[IconSource]" />
+          </ExpressionBindings>
+        </Item2>
+        <Item3 Ref="7" ControlType="XRLabel" Name="label2" Multiline="true" Text="label2" SizeF="100,23" LocationFloat="98.3333359,33.0000038" Padding="2,2,0,0,96">
+          <ExpressionBindings>
+            <Item1 Ref="8" EventName="BeforePrint" PropertyName="Text" Expression="[Link]" />
+          </ExpressionBindings>
+        </Item3>
+        <Item4 Ref="9" ControlType="XRLabel" Name="label1" Multiline="true" Text="label1" SizeF="100,23" LocationFloat="98.3333359,10" Padding="2,2,0,0,96">
+          <ExpressionBindings>
+            <Item1 Ref="10" EventName="BeforePrint" PropertyName="Text" Expression="[Name]" />
+          </ExpressionBindings>
+        </Item4>
+      </Controls>
+    </Item2>
+    <Item3 Ref="11" ControlType="BottomMarginBand" Name="BottomMargin" />
+  </Bands>
+</XtraReportsLayoutSerializer>
