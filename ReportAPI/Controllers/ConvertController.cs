@@ -83,7 +83,9 @@ namespace ReportAPI.Controllers
                 try
                 {
                     string path = AppDomain.CurrentDomain.BaseDirectory+"/Files";
-                    wordProcessor.LoadDocument(fileBytes);
+                    wordProcessor.Options.Import.OpenXml.IgnoreDeletedText = false;
+                    wordProcessor.Options.Import.OpenXml.IgnoreInsertedText = false;
+                    wordProcessor.LoadDocument(fileBytes, DocumentFormat.OpenXml);
                     Document document = wordProcessor.Document;
                     foreach (var field in document.Fields)
                     {
