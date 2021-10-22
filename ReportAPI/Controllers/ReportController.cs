@@ -17,37 +17,37 @@ namespace ReportAPI.Controllers
     public class ReportController : ApiController
     {
         // POST: api/Report
-        public FileResult Post([FromBody]Report report)
-        {
-            if (report != null)
-            {
-                XtraReport xtraReport = new XtraReport();
-                switch (report.Type)
-                {
-                    case "type1":
-                        xtraReport.LoadLayout(System.Web.Hosting.HostingEnvironment.MapPath(@"~/TypeFiles/type1.repx"));
-                        break;
-                    default:
-                        break;
-                }
+        //public FileResult Post([FromBody]Report report)
+        //{
+        //    if (report != null)
+        //    {
+        //        XtraReport xtraReport = new XtraReport();
+        //        switch (report.Type)
+        //        {
+        //            case "type1":
+        //                xtraReport.LoadLayout(System.Web.Hosting.HostingEnvironment.MapPath(@"~/TypeFiles/type1.repx"));
+        //                break;
+        //            default:
+        //                break;
+        //        }
 
-                var jsonDataSource = new JsonDataSource();
-                jsonDataSource.JsonSource = new CustomJsonSource(report.Data);
-                // Populate the data source with data.
-                jsonDataSource.Fill();
+        //        var jsonDataSource = new JsonDataSource();
+        //        jsonDataSource.JsonSource = new CustomJsonSource(report.Data);
+        //        // Populate the data source with data.
+        //        jsonDataSource.Fill();
 
-                xtraReport.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            jsonDataSource});
-                xtraReport.DataSource = jsonDataSource;
-                MemoryStream memoryStream = new MemoryStream();
-                xtraReport.SaveDocument(memoryStream);
-                return new FileStreamResult(memoryStream, "application/prnx") { FileDownloadName="report.prnx"};
-            }
-            else
-            {
-                return null;
-            }
-        }
+        //        xtraReport.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
+        //    jsonDataSource});
+        //        xtraReport.DataSource = jsonDataSource;
+        //        MemoryStream memoryStream = new MemoryStream();
+        //        xtraReport.SaveDocument(memoryStream);
+        //        return new FileStreamResult(memoryStream, "application/prnx") { FileDownloadName="report.prnx"};
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
 
     }
 }

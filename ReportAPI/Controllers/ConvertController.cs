@@ -82,7 +82,7 @@ namespace ReportAPI.Controllers
             {
                 try
                 {
-                    string path = AppDomain.CurrentDomain.BaseDirectory+"/Files";
+                    string path = HttpContext.Current.Server.MapPath("~/Files/");
                     wordProcessor.Options.Import.OpenXml.IgnoreDeletedText = false;
                     wordProcessor.Options.Import.OpenXml.IgnoreInsertedText = false;
                     wordProcessor.LoadDocument(fileBytes, DocumentFormat.OpenXml);
@@ -121,12 +121,12 @@ namespace ReportAPI.Controllers
                             ms.Position = 0;
                             ms.CopyTo(fs);
                         }
-                        return Json(new ConvertResult(){ FileUrl = string.Format(@"http://{0}/ReportApi/api/GetFile?fileName={1}", "185.74.6.63", Uri.EscapeDataString(file.Name)) });
+                        return Json(new ConvertResult(){ FileUrl = string.Format(@"http://{0}/api/GetFile?fileName={1}", "192.168.70.141:8080", Uri.EscapeDataString(file.Name)) });
                     }
                 }
                 catch (Exception ex)
                 {
-                    return null;
+                    return Json(new ConvertResult() { FileUrl = ex.Message });
                     // Your code to handle cancellation
                 }
             }
